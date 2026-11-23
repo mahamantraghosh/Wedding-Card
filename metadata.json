@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Saifuddin Alam & Sidra Ahmed — Wedding Invitation",
+  "description": "Interactive wedding invitation for Dr. Saifuddin Alam and Sidra Ahmed celebrating their Haldi, Mehendi, Nikaah Ceremony, and Walima Reception in Kolkata, March 2027.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

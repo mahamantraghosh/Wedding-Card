@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Amiri", Georgia, serif;
+
+  --color-parchment: #f7e8d2;
+  --color-parchment-light: #fcf4e6;
+  --color-parchment-deep: #edd6b5;
+  --color-maroon: #470718;
+  --color-maroon-mid: #680d26;
+  --color-maroon-dark: #320310;
+  --color-gold: #c49746;
+  --color-gold-light: #e8cf95;
+  --color-gold-dark: #8c6323;
+  --color-ink: #3c141c;
+  --color-muted: #6e4a44;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #360412;
+  color: #3c141c;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background-color: #360412;
+}
+
+/* Deep Imperial Royal Maroon Damask Wallpaper (matching Shahi Patra doors & ceremony court) */
+.shahi-maroon-damask {
+  background-color: #470718;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(126, 22, 50, 0.35) 0%, transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 76 76'%3E%3Cg fill='%238c1c39' fill-opacity='0.22'%3E%3Cpath d='M38 12 C41 20 46 25 38 34 C30 25 35 20 38 12 Z'/%3E%3Cpath d='M38 35 C44 37 49 43 44 50 C41 46 39 44 38 44 C37 44 35 46 32 50 C27 43 32 37 38 35 Z'/%3E%3Ccircle cx='38' cy='58' r='2.2'/%3E%3Cpath d='M0 50 C5 52 8 56 5 61 L0 58 Z M76 50 C71 52 68 56 71 61 L76 58 Z'/%3E%3Cpath d='M38 0 L41 4 L38 8 L35 4 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 76px 76px;
+}
+
+/* Warm Antique Sandstone Parchment with subtle Mughal Buta Damask */
+.shahi-parchment {
+  background-color: #f7e8d2;
+  background-image:
+    radial-gradient(circle at 50% 10%, rgba(255, 250, 240, 0.55) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='%23c49746' fill-opacity='0.095'%3E%3Cpath d='M42 16 C45 24 50 28 42 38 C34 28 39 24 42 16 Z'/%3E%3Cpath d='M42 39 C49 41 53 47 48 54 C45 50 43 48 42 48 C41 48 39 50 36 54 C31 47 35 41 42 39 Z'/%3E%3Ccircle cx='42' cy='62' r='2'/%3E%3Cpath d='M42 4 L45 8 L42 12 L39 8 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 84px 84px;
+}
+
+/* Royal Maroon Silk Damask Band for top/bottom curved hero frames */
+.shahi-maroon-dots {
+  background-color: #470718;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M14 9 L16.5 14 L14 19 L11.5 14 Z' fill='%238c1c39' fill-opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 28px 28px;
+}
+
+/* Royal Palace Double Door Opening Transition */
+.shahi-door-panel {
+  transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.shahi-door-left.is-open {
+  transform: translate3d(-104%, 0, 0);
+}
+
+.shahi-door-right.is-open {
+  transform: translate3d(104%, 0, 0);
+}
+
+/* Ornate Mughal Cartouche Button (matching Shahi Patra "Tap to open") */
+.shahi-cartouche-btn {
+  background: linear-gradient(180deg, #7f0d2f 0%, #5e0720 55%, #470517 100%);
+  border: 1.5px solid #d9b061;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 232, 185, 0.38),
+    0 6px 18px -6px rgba(56, 5, 18, 0.55);
+  clip-path: polygon(
+    14px 0%,
+    calc(100% - 14px) 0%,
+    100% 50%,
+    calc(100% - 14px) 100%,
+    14px 100%,
+    0% 50%
+  );
+}
+
+.shahi-cartouche-btn:hover {
+  background: linear-gradient(180deg, #911237 0%, #6d0b27 60%, #52061b 100%);
+}
+
+/* Bevelled Deep Maroon Museum Picture Frame (Shahi Patra Story Gallery) */
+.shahi-museum-frame {
+  background: linear-gradient(145deg, #870f31 0%, #5a061e 50%, #3d0313 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 210, 190, 0.22),
+    inset 0 -3px 5px rgba(20, 0, 6, 0.55),
+    0 18px 38px -14px rgba(48, 8, 16, 0.45);
+}
+
+/* Gentle continuous compositor-only animations */
+@keyframes slowArchZoom {
+  0% {
+    transform: scale(1.01);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+
+.animate-arch-zoom {
+  animation: slowArchZoom 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes letterSoftReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(7px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-letter-reveal {
+  opacity: 0;
+  animation: letterSoftReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tasselFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(1.5deg);
+  }
+}
+
+.animate-tassel-float {
+  animation: tasselFloat 2.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes handPullCue {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.animate-pull-cue {
+  animation: handPullCue 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes scrollDownBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.animate-scroll-arrow {
+  animation: scrollDownBounce 2.1s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkleTwinkle 3.2s ease-in-out infinite;
+}
+
+@keyframes routeDash {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+.animate-route-dash {
+  animation: routeDash 2.8s linear infinite;
+}
+
+@keyframes pinRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+.animate-pin-ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pinRipple 2.4s ease-out infinite;
+}
+
+.anim-paused,
+.anim-paused * {
+  animation-play-state: paused !important;
+}
